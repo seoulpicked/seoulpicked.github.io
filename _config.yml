@@ -1,0 +1,13 @@
+title: Seoul Picked
+description: Discover Korean food, style, pop culture and travel with practical English guides.
+url: "https://seoulpicked.github.io"
+baseurl: ""
+lang: en
+markdown: kramdown
+permalink: /stories/:title/
+plugins:
+  - jekyll-sitemap
+exclude:
+  - README.md
+  - ARTICLE_PROMPT.md
+  - .github
