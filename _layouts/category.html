@@ -1,0 +1,4 @@
+---
+layout: default
+---
+<section class="wrap category"><div class="eyebrow">EXPLORE KOREA</div><h1>{{ page.title }}</h1><p class="lead">{{ page.description }}</p><div class="story-grid">{% assign chosen = site.posts | where: 'category', page.category %}{% for post in chosen %}<a class="story" href="{{ post.url | relative_url }}"><div class="story-art art-{{ post.category }}"><span>{{ post.category | upcase }}</span></div><div class="story-info"><small>{{ post.date | date: '%b %d, %Y' }}</small><h2>{{ post.title }}</h2><p>{{ post.description }}</p><span class="read">Read guide →</span></div></a>{% endfor %}</div></section>
