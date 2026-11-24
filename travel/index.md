@@ -1,7 +1,6 @@
 ---
-layout: category
-title: "Korea Travel"
-description: "Plan smarter days out in Seoul and beyond."
-category: travel
+layout: travel
+title: Seoul District Map
+description: Explore Seoul by district. Select any of its 25 gu to find parks, culture and neighbourhood places.
 permalink: /travel/
 ---
