@@ -1,0 +1,58 @@
+---
+layout: default
+title: Shop · Test checkout
+description: Try the Seoul Picked test checkout with a USD 1.00 demo product. No real money is charged.
+permalink: /shop/
+---
+<style>
+.sp-shop{padding-top:52px;padding-bottom:80px}.sp-shop-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px;align-items:start}.sp-product-art{aspect-ratio:1;background:#e7efe5;border-radius:22px;display:grid;place-content:center;text-align:center;color:#152a24}.sp-product-art strong{font-size:clamp(50px,8vw,100px);letter-spacing:-5px}.sp-product-art span{font-size:14px;letter-spacing:3px}.sp-shop h1{font-size:48px;margin:0 0 12px}.sp-shop h2{font-size:30px;margin:12px 0}.sp-test-note{padding:16px;border:1px solid #b6c595;background:#f2f7e7;border-radius:12px}.sp-price{font-size:32px;font-weight:700}.sp-summary{display:flex;justify-content:space-between;border-bottom:1px solid #d9e0d5;padding:12px 0}.sp-checkout{margin-top:24px}.sp-checkout button{min-height:48px;padding:12px 18px;background:#152a24;color:white;border:0;border-radius:8px;font:inherit;cursor:pointer}.sp-checkout button:disabled{opacity:.6;cursor:wait}.sp-status{padding:14px;border-radius:9px;background:#edf2e9;overflow-wrap:anywhere}.sp-shop a{text-decoration:underline}.sp-result[hidden]{display:none}.sp-shop small{display:block;line-height:1.6;margin:14px 0;color:#536258}@media(max-width:700px){.sp-shop-grid{grid-template-columns:1fr;gap:24px}.sp-shop h1{font-size:36px}.sp-product-art{aspect-ratio:4/3}} 
+</style>
+<section class="wrap sp-shop">
+<div class="eyebrow">SEOUL PICKED · TEST SHOP</div>
+<h1>A little test, before we launch.</h1>
+<p class="sp-test-note"><strong>TEST MODE — no real payment.</strong> This is a checkout demonstration. Nothing will be charged, shipped or delivered.</p>
+<div class="sp-shop-grid"><div class="sp-product-art" role="img" aria-label="Test product placeholder, not a real item"><span>SEOUL PICKED</span><strong>Test</strong><span>CHECKOUT DEMO</span></div>
+<div><div class="eyebrow">DEMO PRODUCT · SP-TEST-001</div><h2>Test</h2><p>A sample product to try the payment experience. This listing does not represent a physical or digital product for sale.</p><p class="sp-price">US$1.00 <small>USD · United States dollars</small></p><div class="sp-summary"><span>Quantity</span><strong>1</strong></div><div class="sp-summary"><span>Shipping / tax</span><strong>US$0.00 · demo</strong></div><div class="sp-summary"><span>Test total</span><strong>US$1.00</strong></div>
+<div class="sp-checkout"><button type="button" id="sp-start-checkout">Open test checkout · US$1.00</button><p id="sp-checkout-status" class="sp-status" role="status" aria-live="polite">Ready to try. Payment runs in PayPal Sandbox.</p><div id="sp-paypal-buttons"></div></div>
+<small>Use a PayPal Sandbox buyer account, not your real PayPal credentials or real card details. The demo uses PayPal's shared sandbox configuration; it does not create sales or settlement records in a Seoul Picked merchant account. <a href="https://developer.paypal.com/sandbox-testing/accounts/" target="_blank" rel="noopener noreferrer">About sandbox test accounts</a> · <a href="/privacy/">Privacy notice</a>.</small>
+<section id="sp-checkout-result" class="sp-result sp-status" hidden tabindex="-1"><h2>Test payment complete</h2><p>No real money was charged. No item will be delivered.</p><p>Test receipt: <strong id="sp-test-receipt"></strong></p><p>Test total: US$1.00 USD</p><a href="/shop/">Try again</a></section>
+<p>Questions? <a href="/contact/">Contact Seoul Picked</a>.</p></div></div></section>
+<script>
+(() => {
+ 'use strict';
+ const button=document.getElementById('sp-start-checkout'),status=document.getElementById('sp-checkout-status');
+ let started=false;
+ const tell=text=>status.textContent=text;
+ button.addEventListener('click',()=>{
+  if(started)return;started=true;button.disabled=true;tell('Loading the PayPal Sandbox test checkout…');
+  const script=document.createElement('script');
+  // PayPal's documented shared sandbox shortcut. Never replace with live credentials here.
+  script.src='https://www.paypal.com/sdk/js?client-id=sb&currency=USD&intent=capture&components=buttons&disable-funding=credit,paylater,venmo,card';
+  script.onerror=()=>{started=false;button.disabled=false;script.remove();tell('The test checkout could not load. Check your connection or content blocker and try again. No payment was made.');};
+  script.onload=()=>{
+   if(!window.paypal){script.onerror();return;}
+   paypal.Buttons({
+    fundingSource:paypal.FUNDING.PAYPAL,
+    style:{layout:'vertical',color:'gold',shape:'rect',label:'paypal',height:48},
+    createOrder:(_,actions)=>{
+     tell('Opening test checkout for US$1.00 USD…');
+     return actions.order.create({intent:'CAPTURE',purchase_units:[{description:'Seoul Picked Test — sandbox only',amount:{currency_code:'USD',value:'1.00',breakdown:{item_total:{currency_code:'USD',value:'1.00'}}},items:[{name:'Test',sku:'SP-TEST-001',unit_amount:{currency_code:'USD',value:'1.00'},quantity:'1',category:'DIGITAL_GOODS'}]}],application_context:{shipping_preference:'NO_SHIPPING',user_action:'PAY_NOW'}});
+    },
+    onApprove:async(_,actions)=>{
+     tell('Confirming the test payment…');
+     try{
+      const order=await actions.order.capture();const units=order.purchase_units||[];const captures=units.flatMap(u=>u.payments?.captures||[]);
+      const capture=captures.find(c=>c.status==='COMPLETED'&&c.amount?.currency_code==='USD'&&c.amount?.value==='1.00');
+      if(order.status!=='COMPLETED'||!capture)throw new Error('Test payment not completed');
+      document.getElementById('sp-test-receipt').textContent=capture.id;
+      document.getElementById('sp-paypal-buttons').hidden=true;const result=document.getElementById('sp-checkout-result');result.hidden=false;result.focus();tell('Test payment confirmed by PayPal Sandbox. No real money was charged.');
+     }catch{tell('The test payment could not be confirmed. No completed order is recorded by this website. Please retry the test.');}
+    },
+    onCancel:()=>tell('Test checkout cancelled. No payment was completed. You can try again.'),
+    onError:()=>tell('PayPal Sandbox returned an error. No test payment is confirmed. Try again using a Sandbox buyer account.')
+   }).render('#sp-paypal-buttons').then(()=>{button.hidden=true;tell('Sandbox is ready. Choose PayPal below to test US$1.00. No real charge.');}).catch(()=>{started=false;button.disabled=false;tell('The PayPal test button could not load. Please refresh and try again.');});
+  };
+  document.head.append(script);
+ });
+})();
+</script>
