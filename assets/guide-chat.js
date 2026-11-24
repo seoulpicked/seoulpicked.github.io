@@ -60,7 +60,7 @@
   const stop=new Set('what where when how can could would should do does is are the a an to in on for of me you your i my please tell about find some with 서울 한국 어디 추천 알려줘'.split(' '));
   const aliases=[[/파전|pajeon|pancake|seafood/,'pajeon pancake seafood'],[/음식|간식|디저트|먹|food|snack|dessert/,'food snack dessert'],[/무료|공짜|free/,'free'],[/여행|야경|산책|travel|night|walk/,'travel night walk'],[/뷰티|화장품|스킨케어|beauty|skincare/,'style beauty skincare'],[/케이팝|케이팝|k.?pop/,'culture k-pop'],[/최신|새.?영상|latest video|new video/,'latestvideo']];
   function search(q){let normalized=q.normalize('NFKC').toLowerCase();for(const [pattern,words] of aliases)if(pattern.test(normalized))normalized+=' '+words;
-    if(normalized.includes('latestvideo'))return guides.filter(g=>g.video==='pOg4WYPD12s');
+    if(normalized.includes('latestvideo'))return guides.filter(g=>g.video==='6OsAEh6aZvc');
     const words=[...new Set((normalized.match(/[\p{L}\p{N}-]+/gu)||[]).filter(w=>w.length>1&&!stop.has(w)))];
     return guides.map(g=>{const title=(g.title||'').toLowerCase(),body=((g.description||'')+' '+(g.text||'')).toLowerCase();let score=0;for(const word of words){if(title.includes(word))score+=5;if((g.category||'').includes(word))score+=3;if(body.includes(word))score+=1;}return {g,score};}).filter(x=>x.score>=2).sort((a,b)=>b.score-a.score).slice(0,3).map(x=>x.g);
   }
