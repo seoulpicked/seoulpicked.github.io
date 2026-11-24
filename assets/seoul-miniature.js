@@ -41,9 +41,9 @@ async function initialise(){
  const pins=host.querySelector('.miniature-pins');
  for(const [i,g] of numbered.entries()){
   const slug=g.dataset.district;const dot=g.querySelector('.district-dot');const cx=Number(dot.getAttribute('cx'));const cy=Number(dot.getAttribute('cy'));const nums=g.querySelector('.district-top').getAttribute('d').match(/-?\d+(?:\.\d+)?/g).map(Number);
-  const shape=new T.Shape();for(let k=0;k<nums.length;k+=2){const x=(nums[k]-cx)*.955,y=-(nums[k+1]-cy)*.955;k?shape.lineTo(x,y):shape.moveTo(x,y);}shape.closePath();
+  const shape=new T.Shape();for(let k=0;k<nums.length;k+=2){const x=(nums[k]-cx)*.88,y=-(nums[k+1]-cy)*.88;k?shape.lineTo(x,y):shape.moveTo(x,y);}shape.closePath();
   const geo=new T.ExtrudeGeometry(shape,{depth:30,bevelEnabled:true,bevelThickness:3.5,bevelSize:2.7,bevelSegments:3,curveSegments:3,steps:1});
-  const group=new T.Group();group.position.set(cx-400,333-cy,0);scene.add(group);
+  const group=new T.Group();group.position.set((cx-400)*1.035,(333-cy)*1.035,0);scene.add(group);
   const top=clay(palette[i%palette.length]),side=clay(new T.Color(palette[i%palette.length]).multiplyScalar(.85));const tile=mesh(geo,[top,side],group);tile.userData.slug=slug;pickMeshes.push(tile);
   cylinder(group,0,-14,34,11,12,3,white);
   const n=g.querySelector('.district-number').textContent.trim();const name=(g.getAttribute('aria-label')||slug).split(' ')[0].replace('-gu','');
