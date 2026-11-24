@@ -67,6 +67,7 @@
   function answer(q){message(q,true);const ko=/[가-힣]/.test(q);
     if(/contact|enquir|inquir|request|suggestion|partnership|문의|요청|요구|제안|연락|이메일/i.test(q)){message(ko?'문의·요청 내용을 아래 양식에 작성하면 서울픽드 메일로 전달됩니다.':'Use the message form to email your question or request to our team.');contact(true);return;}
     if(/^(hi|hello|hey|안녕)[! .]*$/i.test(q)){message(ko?'음식, 여행, 뷰티 또는 영상에 대해 물어보세요. 문의·요청은 Send an enquiry를 눌러 보내실 수 있어요.':'Ask about food, places, beauty or videos. Choose Send an enquiry to message our team.');return;}
+    if(/지도|자치구|지역구|seoul map|district map/i.test(q)){const d=message(ko?'서울 25개 자치구 지도에서 지역별 관광 명소를 찾아보세요.':'Explore attractions using our 25-district Seoul map.');const a=document.createElement('a');a.href='/travel/';a.textContent=ko?'서울 지도 열기':'Open Seoul district map';d.append(document.createElement('br'),a);return;}
     const results=search(q);if(!results.length){message(ko?'관련 홈페이지 글을 찾지 못했어요. Send an enquiry로 질문이나 요청을 보내주세요.':'I couldn’t find a matching guide on this website. Try a place or food name, or choose Send an enquiry to ask our team.');return;}
     const box=message(ko?'관련 홈페이지 안내를 찾았어요. 자세한 내용은 원문을 확인해 주세요.':'Here’s what I found in our guides. Open a story for the details.');
     results.forEach(g=>{const d=document.createElement('div');d.className='spg-result';const a=document.createElement('a');a.href=g.url;a.textContent=g.title;const p=document.createElement('p');p.textContent=g.description||g.text.slice(0,220);d.append(a,p);box.append(d);});
