@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "How to Plan Your First Trip to South Korea"
+title: How to Plan Your First Trip to South Korea
 date: 2026-11-22
 category: travel
-description: "A practical starting point for first-time visitors to Korea."
+description: A practical starting point for first-time visitors to Korea.
+image: /assets/photo-palace.jpg
+image_alt: Geunjeongjeon at Gyeongbokgung Palace, Seoul
+image_author: Janine Dupree
+image_license: CC BY 2.0
+image_source: https://commons.wikimedia.org/wiki/File:Gyeongbokgung_Palace.jpg
+image_license_url: https://creativecommons.org/licenses/by/2.0/
 ---
 
 ## Start with the basics

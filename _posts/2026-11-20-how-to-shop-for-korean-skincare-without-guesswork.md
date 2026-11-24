@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "How to Shop for Korean Skincare Without Guesswork"
+title: How to Shop for Korean Skincare Without Guesswork
 date: 2026-11-20
 category: style
-description: "A practical approach to ingredients, skin needs and product labels."
+description: A practical approach to ingredients, skin needs and product labels.
+image: /assets/photo-beauty.jpg
+image_alt: A selection of Korean skincare and cosmetic products
+image_author: Jmh65890
+image_license: CC0 1.0
+image_source: https://commons.wikimedia.org/wiki/File:Korean_cosmetic_products.jpg
+image_license_url: https://creativecommons.org/publicdomain/zero/1.0/
 ---
 
 ## Begin with your own needs

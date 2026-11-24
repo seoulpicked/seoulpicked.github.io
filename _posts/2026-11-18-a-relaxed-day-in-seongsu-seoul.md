@@ -1,9 +1,15 @@
 ---
 layout: post
-title: "A Relaxed Day in Seongsu, Seoul"
+title: A Relaxed Day in Seongsu, Seoul
 date: 2026-11-18
 category: travel
-description: "An easygoing neighborhood itinerary for cafés, shops and a walk."
+description: An easygoing neighborhood itinerary for cafés, shops and a walk.
+image: /assets/photo-seongsu.jpg
+image_alt: Seongsu neighbourhood near Seoul Forest
+image_author: Sgroey
+image_license: CC BY-SA 4.0
+image_source: https://commons.wikimedia.org/wiki/File:Seongsu_seoul_1.jpg
+image_license_url: https://creativecommons.org/licenses/by-sa/4.0/
 ---
 
 ## Why Seongsu?
