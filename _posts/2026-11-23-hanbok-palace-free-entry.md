@@ -5,6 +5,8 @@ date: "2026-11-23"
 category: travel
 description: "Gyeongbokgung, Changdeokgung and Deoksugung from our Short, plus the outfit rules and the Secret Garden exception."
 youtube_id: "5LabxMliC4I"
+video_published_at: "2026-11-23T12:58:01+00:00"
+youtube_title: "Hanbok in Seoul: 3 Palaces You Enter Free (Gyeongbokgung, Changdeokgung, Deoksugung)"
 video_format: "Short"
 ---
 

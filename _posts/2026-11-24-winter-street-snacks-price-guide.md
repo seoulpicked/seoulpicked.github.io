@@ -5,6 +5,8 @@ date: "2026-11-24"
 category: food
 description: "Our newer winter-snack Short compares bungeoppang, hotteok and egg bread, with sample Seoul prices and ordering tips."
 youtube_id: "b3AoBt1fHJk"
+video_published_at: "2026-11-23T15:09:38+00:00"
+youtube_title: "Korean Winter Street Snacks 2026: Bungeoppang, Hotteok & Egg Bread Prices"
 video_format: "Short"
 ---
 

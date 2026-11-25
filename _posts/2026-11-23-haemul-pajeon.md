@@ -5,6 +5,8 @@ date: "2026-11-23"
 category: food
 description: "Scallions, seafood and batter become a golden Korean pancake in our new cooking Short."
 youtube_id: "pOg4WYPD12s"
+video_published_at: "2026-11-23T11:26:04+00:00"
+youtube_title: "A Pancake… With SEAFOOD? 🇰🇷 #Shorts"
 video_format: "Short"
 ---
 

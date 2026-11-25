@@ -5,6 +5,8 @@ date: "2026-11-24"
 category: culture
 description: "Plan a free permanent-gallery visit to the National Museum of Korea, centred on the Room of Quiet Contemplation."
 youtube_id: "xvpEqFy_QZo"
+video_published_at: "2026-11-23T22:47:16+00:00"
+youtube_title: "Seoul's Free Museum: The Silent Room With Two 1,400-Year-Old Buddhas (National Museum of Korea)"
 video_format: "Short"
 ---
 

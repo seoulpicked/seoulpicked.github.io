@@ -5,6 +5,8 @@ date: "2026-11-22"
 category: "food"
 description: "London Bagel Museum, Artist Bakery and Café Onion, with a practical way to plan the queues."
 youtube_id: "uBihUoCDCeY"
+video_published_at: "2026-11-22T00:32:54+00:00"
+youtube_title: "Seoul Bakery Open Run: London Bagel Museum, Artist Bakery & Cafe Onion in Anguk (Hours + Queue Tips)"
 video_format: "Short"
 ---
 

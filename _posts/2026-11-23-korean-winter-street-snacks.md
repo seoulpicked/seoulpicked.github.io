@@ -5,6 +5,8 @@ date: "2026-11-23"
 category: food
 description: "Meet the three snacks in our winter-food Short and use the stall's current menu to plan your order."
 youtube_id: "5eR-JWBr0kQ"
+video_published_at: "2026-11-22T13:33:24+00:00"
+youtube_title: "Korean Winter Street Snacks 2026: Bungeoppang, Hotteok & Egg Bread Prices"
 video_format: "Short"
 ---
 

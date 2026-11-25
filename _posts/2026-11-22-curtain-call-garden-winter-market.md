@@ -5,6 +5,8 @@ date: "2026-11-22"
 category: "travel"
 description: "A small winter market in Gwanghwamun, with hot street food, handmade gifts and an easy evening route."
 youtube_id: "qnOff3CgEFE"
+video_published_at: "2026-11-22T10:45:50+00:00"
+youtube_title: "Seoul's Hidden FREE Winter Market — Curtain Call Garden, Gwanghwamun (2026–27)"
 video_format: "Video"
 ---
 

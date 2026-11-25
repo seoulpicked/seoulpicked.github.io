@@ -5,6 +5,8 @@ date: "2026-11-24"
 category: food
 description: "Bindaetteok, yukhoe and mini gimbap from our market Short, with an ordering plan and sample budget."
 youtube_id: "6OsAEh6aZvc"
+video_published_at: "2026-11-24T09:09:48+00:00"
+youtube_title: "Gwangjang Market Seoul: Bindaetteok, Yukhoe & Mayak Gimbap — Prices, Hours, How to Get There"
 video_format: "Short"
 ---
 

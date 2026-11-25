@@ -5,6 +5,8 @@ date: "2026-11-24"
 category: food
 description: "Three November dessert finds, with the Korean product names, store chains and prices quoted in our Short."
 youtube_id: "CrmUbYe8jPI"
+video_published_at: "2026-11-24T00:29:04+00:00"
+youtube_title: "Korean Convenience Store New Desserts 2026: Tangerine Jelly, Bonjuk Cake, Book Bread"
 video_format: "Short"
 ---
 

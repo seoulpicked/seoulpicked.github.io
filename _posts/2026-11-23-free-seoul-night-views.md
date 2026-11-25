@@ -5,6 +5,8 @@ date: "2026-11-23"
 category: travel
 description: "Three outdoor night-view ideas from our Short, with a simple way to choose your evening walk."
 youtube_id: "pWb3JUDtKCM"
+video_published_at: "2026-11-22T22:17:58+00:00"
+youtube_title: "Seoul Night Views for Free: Cheonggyecheon, DDP & Han River (No Tickets)"
 video_format: "Short"
 ---
 
