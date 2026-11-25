@@ -1,0 +1,7 @@
+---
+layout: null
+permalink: /video-sitemap.xml
+sitemap: false
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">{% for post in site.posts %}{% if post.youtube_id and post.video_published_at %}<url><loc>{{ post.url | absolute_url | xml_escape }}</loc><video:video><video:thumbnail_loc>https://i.ytimg.com/vi/{{ post.youtube_id }}/hqdefault.jpg</video:thumbnail_loc><video:title>{{ post.youtube_title | default: post.title | xml_escape }}</video:title><video:description>{{ post.description | xml_escape }}</video:description><video:player_loc>https://www.youtube-nocookie.com/embed/{{ post.youtube_id }}</video:player_loc><video:publication_date>{{ post.video_published_at | xml_escape }}</video:publication_date></video:video></url>{% endif %}{% endfor %}</urlset>

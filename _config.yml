@@ -11,3 +11,17 @@ exclude:
   - README.md
   - ARTICLE_PROMPT.md
   - .github
+
+defaults:
+  - scope:
+      path: "shop"
+    values:
+      noindex: true
+      sitemap: false
+  - scope:
+      path: "contact/thanks"
+    values:
+      noindex: true
+      sitemap: false
+
+google_site_verification: "JogSz_55TFlqnsWe1EatVMBAdOBiVd5WjJr7XB5WVB0"

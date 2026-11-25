@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://seoulpicked.github.io/sitemap.xml
+Sitemap: https://seoulpicked.github.io/video-sitemap.xml
