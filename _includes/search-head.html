@@ -1,0 +1,31 @@
+{% if site.google_site_verification %}<meta name="google-site-verification" content="{{ site.google_site_verification | escape }}">{% endif %}
+{% assign search_title = page.seo_title | default: page.title | default: site.title %}
+{% if page.url == '/travel/' %}{% assign search_title = 'Seoul District Map — 25 Neighbourhoods & Things to Do' %}{% elsif page.url == '/food/' %}{% assign search_title = 'Korean Food Guide — Street Snacks & Convenience Stores in Seoul' %}{% elsif page.url == '/style/' %}{% assign search_title = 'K-Beauty Shopping in Seoul — Korean Skincare & Store Guides' %}{% endif %}
+{% assign search_description = page.description | default: site.description %}
+{% assign search_image = page.image | default: '/assets/photo-palace.jpg' | absolute_url %}
+{% if page.youtube_id %}{% capture search_image %}https://i.ytimg.com/vi/{{ page.youtube_id }}/hqdefault.jpg{% endcapture %}{% endif %}
+<title>{{ search_title | escape }} | Seoul Picked</title>
+<meta name="description" content="{{ search_description | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta name="robots" content="{% if page.noindex %}noindex,follow{% else %}index,follow,max-image-preview:large{% endif %}">
+<meta property="og:site_name" content="Seoul Picked"><meta property="og:locale" content="en_US">
+<meta property="og:title" content="{{ search_title | escape }}"><meta property="og:description" content="{{ search_description | escape }}">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}"><meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ search_image | strip | escape }}"><meta property="og:image:alt" content="{{ page.image_alt | default: search_title | escape }}">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{{ search_title | escape }}"><meta name="twitter:description" content="{{ search_description | escape }}"><meta name="twitter:image" content="{{ search_image | strip | escape }}">
+<link rel="alternate" type="application/rss+xml" title="Seoul Picked stories" href="{{ '/feed.xml' | absolute_url }}">
+{% unless page.noindex %}<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"{{ '/' | absolute_url }}#publisher","name":"Seoul Picked","url":"{{ '/' | absolute_url }}","sameAs":["https://www.youtube.com/@seoulpicked"]},
+{"@type":"WebSite","@id":"{{ '/' | absolute_url }}#website","name":"Seoul Picked","url":"{{ '/' | absolute_url }}","inLanguage":"en","publisher":{"@id":"{{ '/' | absolute_url }}#publisher"}},
+{"@type":"WebPage","@id":"{{ page.url | absolute_url }}#webpage","url":"{{ page.url | absolute_url }}","name":{{ search_title | jsonify }},"description":{{ search_description | jsonify }},"inLanguage":"en","isPartOf":{"@id":"{{ '/' | absolute_url }}#website"}}
+{% if page.layout == 'post' %},
+{"@type":"BlogPosting","@id":"{{ page.url | absolute_url }}#article","headline":{{ page.title | jsonify }},"description":{{ search_description | jsonify }},"image":{{ search_image | strip | jsonify }},"datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.last_modified_at | default: page.date | date_to_xmlschema }}","inLanguage":"en","mainEntityOfPage":{"@id":"{{ page.url | absolute_url }}#webpage"},"author":{"@id":"{{ '/' | absolute_url }}#publisher"},"publisher":{"@id":"{{ '/' | absolute_url }}#publisher"}}
+{% endif %}
+{% if page.youtube_id and page.video_published_at %},
+{"@type":"VideoObject","@id":"{{ page.url | absolute_url }}#video","name":{{ page.youtube_title | default: page.title | jsonify }},"description":{{ search_description | jsonify }},"thumbnailUrl":["https://i.ytimg.com/vi/{{ page.youtube_id }}/hqdefault.jpg"],"uploadDate":{{ page.video_published_at | jsonify }},"embedUrl":"https://www.youtube-nocookie.com/embed/{{ page.youtube_id }}","inLanguage":"en","isFamilyFriendly":true,"publisher":{"@id":"{{ '/' | absolute_url }}#publisher"},"mainEntityOfPage":{"@id":"{{ page.url | absolute_url }}#webpage"}}
+{% endif %}
+{% if page.url != '/' %},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"{{ '/' | absolute_url }}"}{% if page.layout == 'post' %},{"@type":"ListItem","position":2,"name":"{% if page.youtube_id %}Videos{% else %}{{ page.category | capitalize }}{% endif %}","item":"{{ '/' | absolute_url }}{% if page.youtube_id %}videos{% else %}{{ page.category }}{% endif %}/"},{"@type":"ListItem","position":3,"name":{{ page.title | jsonify }},"item":"{{ page.url | absolute_url }}"}{% else %},{"@type":"ListItem","position":2,"name":{{ page.title | jsonify }},"item":"{{ page.url | absolute_url }}"}{% endif %}]}
+{% endif %}]}
+</script>{% endunless %}
